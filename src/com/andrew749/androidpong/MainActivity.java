@@ -12,26 +12,27 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-private static int displayX;
-private static int displayY;
+	private static int displayX;
+	private static int displayY;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
-		displayX=getDisplayX();
-		displayY=getDisplayY();
+		displayX = getDisplayX();
+		displayY = getDisplayY();
 		Button startGame = (Button) findViewById(R.id.button1);
 		startGame.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				GameView game = new GameView(getApplicationContext(),displayX, displayY);
+				GameView game = new GameView(getApplicationContext(), displayX,
+						displayY);
 				setContentView(game);
-				finish();
 			}
 		});
 	}

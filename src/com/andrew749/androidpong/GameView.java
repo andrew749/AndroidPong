@@ -12,15 +12,15 @@ import android.view.WindowManager;
 
 public class GameView extends View {
 	private static Ball ball;
-	private static Paddle paddle;
+	private static Paddle paddlePlayer1;
 	private static int userX;
 	private static int userY;
-	private List<Ball> balls;
 	private Context application;
+
 	public GameView(Context context, int displayX, int displayY) {
 		super(context);
-		application=context;
-		paddle = new Paddle(context, displayX, displayY);
+		application = context;
+		paddlePlayer1 = new Paddle(context, displayX, displayY,1);
 		ball = new Ball(context, displayX, displayY);
 
 	}
@@ -29,9 +29,9 @@ public class GameView extends View {
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-		paddle.update(canvas, userX);
-		ball.update(canvas, paddle);
-		if (!ball.getAliveOrNot()){
+		paddlePlayer1.update(canvas, userX);
+		ball.update(canvas, paddlePlayer1);
+		if (!ball.getAliveOrNot()) {
 			
 		}
 		invalidate();
