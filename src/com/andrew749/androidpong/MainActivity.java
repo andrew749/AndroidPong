@@ -31,6 +31,7 @@ private static int displayY;
 				// TODO Auto-generated method stub
 				GameView game = new GameView(getApplicationContext(),displayX, displayY);
 				setContentView(game);
+				finish();
 			}
 		});
 	}

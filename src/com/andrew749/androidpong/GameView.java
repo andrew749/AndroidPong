@@ -3,6 +3,7 @@ package com.andrew749.androidpong;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,10 +16,13 @@ public class GameView extends View {
 	private static int userX;
 	private static int userY;
 	private List<Ball> balls;
+	private Context application;
 	public GameView(Context context, int displayX, int displayY) {
 		super(context);
-		ball = new Ball(context, displayX, displayY);
+		application=context;
 		paddle = new Paddle(context, displayX, displayY);
+		ball = new Ball(context, displayX, displayY);
+
 	}
 
 	@Override
@@ -26,8 +30,10 @@ public class GameView extends View {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
 		paddle.update(canvas, userX);
-		ball.update(canvas);
-		
+		ball.update(canvas, paddle);
+		if (!ball.getAliveOrNot()){
+			
+		}
 		invalidate();
 	}
 
