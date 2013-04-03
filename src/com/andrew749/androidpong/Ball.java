@@ -92,7 +92,6 @@ public class Ball {
 	public boolean collidedWithPaddle(Paddle paddle) {
 		paddleLocal = paddle;
 		if (paddle.paddleObject().intersect(ball)) {
-			paint.setColor(Color.GREEN);
 			return true;
 		} else {
 			return false;
